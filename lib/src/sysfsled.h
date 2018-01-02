@@ -39,12 +39,21 @@ namespace sysfsled
 		 */
 		void set_brightness(float value);
 		
+		float get_brightness(void);
+		
 		/**
 		 * @brief Turns the LED to max_brightness or to 0
 		 * 
 		 * @param onoff desired state
 		 */
 		void set_state(bool onoff);
+		
+		/**
+		 * @brief Gets the number of levels of brightness from the kernel. This is only really useful for telling you the level of granuarity that can be used with set_brightness.
+		 * 
+		 * @return int levels of brightness
+		 */
+		int get_brightness_levels(void);
 		
 		static std::vector<LED> getSystemLEDs(void);
 		

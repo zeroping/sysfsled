@@ -64,6 +64,16 @@ namespace sysfsled
 		udevice_.set_sysattr("brightness", std::to_string((int) (max_brightness_ * value)));
 	}
 	
+	float LED::get_brightness(void)
+	{
+		int cur_brightness = 1;
+		if (udevice_.has_sysattr("brightness"))
+		{
+			cur_brightness = std::stof(udevice_.get_sysattr("brightness"));
+		}
+		return ((float) cur_brightness) / max_brightness_;
+	}
+	
 	void LED::set_state(bool onoff)
 	{
 		if (onoff)
@@ -73,8 +83,12 @@ namespace sysfsled
 		else 
 		{
 			udevice_.set_sysattr("brightness", "0");
-		}
-		
+		}		
+	}
+	
+	int LED::get_brightness_levels(void)
+	{
+		return max_brightness_;
 	}
 	
 	std::vector<LED> LED::getSystemLEDs(void)
