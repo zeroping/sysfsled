@@ -1,12 +1,19 @@
-# sysfsled
-C++ library for the Linux kernel's LED device class
+# Sysfsled Library
+A C++ library for the Linux kernel's LED device class.
 
 ## What It's For
-You might have used the LEDs on a single-board computer running Linux, such as a Raspberry Pi or similar. If you did, you probably used either direct GPIO, or the kernel's built-in [Linux subsystem for LEDs](https://www.kernel.org/doc/Documentation/leds/leds-class.txt), with something like:
+You might have used the LEDs on a single-board computer running Linux, such as a Raspberry Pi or other embedded system. If you did, you probably used either direct GPIO, or the kernel's built-in [Linux subsystem for LEDs](https://www.kernel.org/doc/Documentation/leds/leds-class.txt), with something like:
 
     echo 0 > /sys/class/leds/tpacpi\:\:power/brightness
 
-This is a quick little C++ library for that built-in kernel interface, so you don't have to mess with writing strings to magical files.
+This is a quick little C++ library for that built-in kernel interface, so you don't have to mess with writing strings to magical files. Instead, you can do things like:
+
+    vector<LED> led_list = LED::getSystemLEDs();
+
+or 
+
+    myled.set_state(true);
+    myled.set_brightness(0.5);
 
 ## How it works
 
