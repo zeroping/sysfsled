@@ -9,10 +9,14 @@ ExternalProject_Add (
       libudevpp
       PREFIX external
       GIT_REPOSITORY "https://github.com/zeroping/libudevpp.git"
-      CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${PROJECT_BINARY_DIR}
       GIT_TAG "master"
       BUILD_COMMAND "${CMAKE_COMMAND}" --build . --target udevpp
-      INSTALL_COMMAND "${CMAKE_COMMAND}" --target udevpp .
+      INSTALL_COMMAND "${CMAKE_COMMAND}" --build . --target install
+	  CMAKE_ARGS
+		"-DCMAKE_BUILD_TYPE=${configuration}"
+		"-DCMAKE_INSTALL_PREFIX=${PROJECT_BINARY_DIR}"
+		"-DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}"
+		"-DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}"
 
 )
 message("install to " ${PROJECT_BINARY_DIR})
