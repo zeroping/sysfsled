@@ -18,7 +18,7 @@ ExternalProject_Add (
 message("install to " ${PROJECT_BINARY_DIR})
 
 include_directories(${PROJECT_BINARY_DIR}/include)
-set(LIBUDEVPP_LIBRARIES "${PROJECT_BINARY_DIR}/lib/libudevpp.a")
+set(LIBUDEVPP_LIBRARIES "${PROJECT_BINARY_DIR}/external/src/libudevpp-build/lib/libudevpp.a")
 
 add_subdirectory(lib)
 add_subdirectory(example)
