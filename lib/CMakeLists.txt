@@ -7,3 +7,7 @@ set(SOURCES src/led.cpp src/sysfsled.h)
 
 add_library(sysfsled ${SOURCES})
 add_dependencies(sysfsled libudevpp-external)
+
+install(TARGETS sysfsled ARCHIVE DESTINATION lib)
+
+install(FILES src/sysfsled.h DESTINATION include)
