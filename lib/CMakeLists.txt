@@ -6,7 +6,9 @@ set(CMAKE_CXX_FLAGS "-std=c++14 ${CMAKE_CXX_FLAGS}")
 set(SOURCES src/led.cpp src/sysfsled.h)
 
 add_library(sysfsled ${SOURCES})
+
 add_dependencies(sysfsled libudevpp)
+
 
 install(TARGETS sysfsled ARCHIVE DESTINATION lib)
 
