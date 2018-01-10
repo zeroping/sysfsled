@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.7)
 
 include(ExternalProject)
 
@@ -12,6 +12,7 @@ ExternalProject_Add (
       GIT_TAG "master"
       BUILD_COMMAND "${CMAKE_COMMAND}" --build . --target udevpp
       INSTALL_COMMAND "${CMAKE_COMMAND}" --build . --target install
+	  SOURCE_SUBDIR lib
 	  CMAKE_ARGS
 		"-DCMAKE_BUILD_TYPE=${configuration}"
 		"-DCMAKE_INSTALL_PREFIX=${PROJECT_BINARY_DIR}"
