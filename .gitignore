@@ -1,5 +1,4 @@
-# Prerequisites
-*.d
+
 
 # Compiled Object files
 *.slo
@@ -30,3 +29,6 @@
 *.exe
 *.out
 *.app
+
+build/*
+
